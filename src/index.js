@@ -49,7 +49,7 @@ module.exports = function (source) {
         const originFunc = callExpression(node.callee, node.arguments)
         const catchFunc = callExpression(id('catch'), [arrowFunc])
         const newFunc = memberExpression(originFunc, catchFunc)
-        console.log(recast.print(newFunc).code)
+
         path.replace(newFunc)
       }
 
