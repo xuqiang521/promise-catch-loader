@@ -24,6 +24,17 @@ module: {
     }
   ]
 }
+
+// vue.config.js
+module.exports = {
+  chainWebpack: config => {
+    config.module
+      .rule('js')
+      .test(/\.js$/)
+      .use('babel-loader').loader('babel-loader').end()
+      .use('promise-catch-loader').loader('promise-catch-loader').end()
+  }
+}
 ```
 
 ```javascript
