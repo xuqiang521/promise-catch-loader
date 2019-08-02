@@ -6,7 +6,7 @@ const {
   blockStatement,
   arrowFunctionExpression
 } = recast.types.builders
-const TNT = recast.types.namedTypes
+const t = recast.types.namedTypes
 
 module.exports = function (source) {
   const ast = recast.parse(source, {
@@ -18,8 +18,8 @@ module.exports = function (source) {
     visitArrowFunctionExpression ({ node, parentPath }) {
       const parentNode = parentPath.node
       if (
-        TNT.CallExpression.check(parentNode) &&
-        TNT.Identifier.check(parentNode.callee.property) &&
+        t.CallExpression.check(parentNode) &&
+        t.Identifier.check(parentNode.callee.property) &&
         parentNode.callee.property.name === 'then'
       ) {
         firstExp = node.body.body[0]
@@ -34,14 +34,14 @@ module.exports = function (source) {
       let isArrowArg = false
 
       node.arguments.forEach(item => {
-        if (TNT.ArrowFunctionExpression.check(item)) {
+        if (t.ArrowFunctionExpression.check(item)) {
           isArrowArg = true
         }
       })
 
       if (
-        TNT.ExpressionStatement.check(firstExp) &&
-        TNT.Identifier.check(node.callee.property) &&
+        t.ExpressionStatement.check(firstExp) &&
+        t.Identifier.check(node.callee.property) &&
         node.callee.property.name === 'then' &&
         isArrowArg
       ) {
