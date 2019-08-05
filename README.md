@@ -26,12 +26,25 @@ module: {
 }
 
 // vue.config.js
+// js 项目
 module.exports = {
   chainWebpack: config => {
     config.module
       .rule('js')
       .test(/\.js$/)
       .use('babel-loader').loader('babel-loader').end()
+      .use('promise-catch-loader').loader('promise-catch-loader').end()
+  }
+}
+// ts 项目
+module.exports = {
+  chainWebpack: config => {
+    config.module
+      .rule('ts')
+      .test(/\.ts$/)
+      .use('cache-loader').loader('cache-loader').end()
+      .use('babel-loader').loader('babel-loader').end()
+      .use('ts-loader').loader('ts-loader').end()
       .use('promise-catch-loader').loader('promise-catch-loader').end()
   }
 }
