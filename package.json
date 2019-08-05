@@ -1,6 +1,6 @@
 {
   "name": "promise-catch-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Promise Catch Loader",
   "main": "src/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/xuqiang521/promise-catch-loader#readme",
   "dependencies": {
+    "recast": "^0.18.1",
     "webpack": "^4.38.0"
   },
   "devDependencies": {
@@ -34,7 +35,6 @@
     "husky": "^3.0.2",
     "lint-staged": "^7.2.0",
     "loader-utils": "^1.2.3",
-    "recast": "^0.18.1",
     "webpack-cli": "^3.3.6"
   },
   "lint-staged": {

@@ -13,9 +13,9 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: {
-          loader: path.resolve(__dirname, 'src/index.js')
-        }
+        use: [
+          { loader: path.resolve(__dirname, 'src/index.js') }
+        ]
       }
     ]
   }
