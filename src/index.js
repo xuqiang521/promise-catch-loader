@@ -43,8 +43,6 @@ module.exports = function (source) {
         }
       })
 
-      
-
       return false
     }
   })

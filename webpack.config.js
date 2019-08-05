@@ -1,7 +1,4 @@
-require('babel-polyfill')
-
 const path = require('path')
-// const webpack = require('webpack')
 
 module.exports = {
   entry: './test/demo.js',
@@ -14,7 +11,12 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          { loader: path.resolve(__dirname, 'src/index.js') }
+          {
+            loader: path.resolve(__dirname, 'src/new-loader.js'),
+            options: {
+              type: 'deep'
+            }
+          }
         ]
       }
     ]
