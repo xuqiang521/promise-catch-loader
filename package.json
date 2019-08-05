@@ -1,6 +1,6 @@
 {
   "name": "promise-catch-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Promise Catch Loader",
   "main": "src/index.js",
   "scripts": {
