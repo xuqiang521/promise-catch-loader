@@ -19,7 +19,6 @@ const DEFAULT = {
 
 module.exports = function (source) {
   const options = { ...DEFAULT, ...loaderUtils.getOptions(this) }
-  console.log(options)
 
   const ast = recast.parse(source, {
     parser: require('recast/parsers/babel')

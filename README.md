@@ -19,7 +19,10 @@ module: {
     {
       test: /\.js$/,
       use: {
-        loader: 'promise-catch-loader'
+        loader: 'promise-catch-loader',
+        option: {
+          type: 'deep'
+        }
       }
     }
   ]
@@ -71,3 +74,8 @@ p.then(res => {
   loading = false
 })
 ```
+
+## Options
+| 字段 | 类型 | 默认值 | 可选值 | 描述 |
+| - | - | - | - | - |
+| type | string | normal | ['normal', 'deep'] | 代码注入类型，normal 普通遍历注入  deep 深度循环注入 |
