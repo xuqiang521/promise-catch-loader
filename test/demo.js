@@ -8,6 +8,10 @@ this.p().then(res => {
 
 this.p().then(res => {
   console.log('resolve')
+})
+
+this.p().then(res => {
+  console.log('resolve1')
 }).then(() => {
   console.log('就这样')
 })

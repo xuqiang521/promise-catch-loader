@@ -14,7 +14,8 @@ module.exports = {
           {
             loader: path.resolve(__dirname, 'src/new-loader.js'),
             options: {
-              type: 'deep'
+              type: 'deep',
+              // line: 0
             }
           }
         ]

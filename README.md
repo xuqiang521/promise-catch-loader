@@ -21,7 +21,8 @@ module: {
       use: {
         loader: 'promise-catch-loader',
         option: {
-          type: 'deep'
+          type: 'deep',
+          line: 0
         }
       }
     }
@@ -62,7 +63,7 @@ p.then(res => {
 })
 ```
 
-引入 `promise-catch-loader` 后
+引入 `promise-catch-loader` 后，不指定 line 行数时
 
 ```javascript
 const p = new Promise()
@@ -70,12 +71,27 @@ let loading = true
 p.then(res => {
   loading = false
   console.log('resolve')
-}).catch(() => {
+}).catch(error => {
+  console.log(error')
+})
+```
+
+指定 line 为 0，即第一行时
+
+```javascript
+const p = new Promise()
+let loading = true
+p.then(res => {
+  loading = false
+  console.log('resolve')
+}).catch(error => {
   loading = false
 })
 ```
+
 
 ## Options
 | 字段 | 类型 | 默认值 | 可选值 | 描述 |
 | - | - | - | - | - |
 | type | string | normal | ['normal', 'deep'] | 代码注入类型，normal 普通遍历注入  deep 深度循环注入 |
+| line | number | - | - | catch 语句表达式取 then 方法指定行数的表达式（等同索引） |
